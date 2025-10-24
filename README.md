@@ -28,53 +28,6 @@ Follow the interactive prompts to configure your project with:
 - Swagger documentation
 - GitHub Actions CI/CD
 
-## Project Structure
-
-```
-my-awesome-app/
-├── src/                        # Application source code
-│   ├── main.ts                 # Application entry point
-│   ├── app.module.ts           # Root application module
-│   ├── app.controller.ts       # Main controller with health checks
-│   ├── app.controller.spec.ts  # Main controller unit tests
-│   ├── app.service.ts          # Main service
-│   ├── app.service.spec.ts     # Main service unit tests
-│   ├── common/                 # Common utilities and shared code
-│   │   ├── decorators/         # Custom decorators
-│   │   ├── enums/              # Application enums
-│   │   ├── exceptions/         # Custom exceptions
-│   │   ├── filters/            # Exception filters
-│   │   ├── guards/             # Route guards
-│   │   ├── interceptors/       # Request/response interceptors
-│   │   ├── middleware/         # Custom middleware
-│   │   └── pipes/              # Validation pipes
-│   ├── config/                 # Configuration files
-│   ├── modules/                # Feature modules
-│   └── shared/                 # Shared services and utilities
-│       ├── services/           # Shared services
-│       └── utils/              # Utility functions
-├── test/                       # End-to-end tests
-│   ├── app.e2e-spec.ts        # E2E test suite
-│   └── jest-e2e.json          # E2E test configuration
-├── .github/
-│   └── workflows/
-│       └── tests.yml          # CI/CD pipeline
-├── .dockerignore              # Docker ignore rules
-├── .env                       # Development environment variables
-├── .env.example               # Example environment file
-├── .env.testing               # Testing environment variables
-├── .env.testing.example       # Example testing environment file
-├── docker-compose.yml         # Docker services configuration
-├── Dockerfile                 # Application container definition
-├── package.json              # Dependencies and scripts
-├── tsconfig.json            # TypeScript configuration
-├── tsconfig.build.json      # TypeScript build configuration
-├── eslint.config.mjs       # ESLint configuration
-├── .prettierrc            # Prettier configuration
-├── .gitignore            # Git ignore rules
-└── README.md            # Project documentation
-```
-
 ## Key Features
 
 - **Production-ready NestJS setup** with best practices
@@ -104,4 +57,4 @@ MIT
 ## Author
 
 **Shafi Danny MUGABO**  
-[GitHub](https://github.com/mugabodannyshafi) | [NPM](https://www.npmjs.com/package/nestify-cli) | [Documentation](https://nestify-docs.vercel.app/)
+[GitHub](https://srt.rw/k8l53P) | [NPM](https://www.npmjs.com/package/nestify-cli) | [Documentation](https://srt.rw/rT9RNP)
