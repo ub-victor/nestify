@@ -63,6 +63,10 @@ export class FileGeneratorService {
       JSON.stringify(
         {
           extends: './tsconfig.json',
+          compilerOptions: {
+            rootDir: './src',
+            ignoreDeprecations: '6.0',
+          },
           exclude: ['node_modules', 'test', 'dist', '**/*spec.ts'],
         },
         null,
