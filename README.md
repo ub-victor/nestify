@@ -28,6 +28,14 @@ Follow the interactive prompts to configure your project with:
 - Swagger documentation
 - GitHub Actions CI/CD
 
+## Git Requirement
+
+`nestify` expects `git` to be available on your PATH by default and will initialize a repository for new projects. If `git` is not installed the CLI will exit with a helpful message. To skip Git initialization use the `--no-git` flag when creating a project:
+
+```bash
+nestify new my-awesome-app --no-git
+```
+
 ## Key Features
 
 - **Production-ready NestJS setup** with best practices

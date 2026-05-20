@@ -96,9 +96,8 @@ describe('GitService', () => {
 
       GitService.initialize(projectPath);
 
-      expect(mockSpinner.warn).toHaveBeenCalledWith(
-        'Git initialization skipped (Git may not be installed)',
-      );
+      expect(mockSpinner.fail).toHaveBeenCalledWith('Git initialization failed');
+      expect(console.error).toHaveBeenCalled();
     });
 
     it('should show warning when git add fails', () => {
@@ -110,9 +109,8 @@ describe('GitService', () => {
 
       GitService.initialize(projectPath);
 
-      expect(mockSpinner.warn).toHaveBeenCalledWith(
-        'Git initialization skipped (Git may not be installed)',
-      );
+      expect(mockSpinner.fail).toHaveBeenCalledWith('Git initialization failed');
+      expect(console.error).toHaveBeenCalled();
     });
 
     it('should not throw error when git commands fail', () => {
@@ -131,8 +129,9 @@ describe('GitService', () => {
 
       GitService.initialize(projectPath);
 
-      expect(mockSpinner.warn).toHaveBeenCalled();
+      expect(mockSpinner.fail).toHaveBeenCalled();
       expect(mockSpinner.succeed).not.toHaveBeenCalled();
+      expect(console.error).toHaveBeenCalled();
     });
 
     it('should suppress stdio output from git commands', () => {
