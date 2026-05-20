@@ -10,7 +10,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';`;
 
-  let modules: string[] = [
+  const modules: string[] = [
     `ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',

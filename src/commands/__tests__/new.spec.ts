@@ -62,7 +62,9 @@ describe('newCommand', () => {
     (PackageInstallerService.install as jest.Mock).mockResolvedValue(undefined);
 
     // Ensure git checks are noop by default in tests
-    (GitService.ensureGitInstalled as jest.Mock).mockImplementation(() => undefined);
+    (GitService.ensureGitInstalled as jest.Mock).mockImplementation(
+      () => undefined,
+    );
 
     consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
     consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
@@ -164,7 +166,10 @@ describe('newCommand', () => {
     });
 
     it('should skip git initialization when --no-git is true', async () => {
-      const opts = { ...mockOptions, noGit: true } as unknown as NewCommandOptions;
+      const opts = {
+        ...mockOptions,
+        noGit: true,
+      } as unknown as NewCommandOptions;
       await newCommand(mockProjectName, opts);
 
       expect(GitService.initialize).not.toHaveBeenCalled();

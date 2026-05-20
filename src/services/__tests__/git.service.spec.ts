@@ -99,7 +99,9 @@ describe('GitService', () => {
 
       GitService.initialize(projectPath);
 
-      expect(mockSpinner.fail).toHaveBeenCalledWith('Git initialization failed');
+      expect(mockSpinner.fail).toHaveBeenCalledWith(
+        'Git initialization failed',
+      );
       expect(console.error).toHaveBeenCalled();
     });
 
@@ -112,7 +114,9 @@ describe('GitService', () => {
 
       GitService.initialize(projectPath);
 
-      expect(mockSpinner.fail).toHaveBeenCalledWith('Git initialization failed');
+      expect(mockSpinner.fail).toHaveBeenCalledWith(
+        'Git initialization failed',
+      );
       expect(console.error).toHaveBeenCalled();
     });
 
