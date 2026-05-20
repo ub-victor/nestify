@@ -11,6 +11,7 @@ import ora from 'ora';
 describe('GitService', () => {
   let mockSpinner: any;
   let mockChdir: jest.SpyInstance;
+  let consoleErrorSpy: jest.SpyInstance;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -25,10 +26,12 @@ describe('GitService', () => {
     (ora as jest.Mock).mockReturnValue(mockSpinner);
 
     mockChdir = jest.spyOn(process, 'chdir').mockImplementation();
+    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   afterEach(() => {
     mockChdir.mockRestore();
+    consoleErrorSpy.mockRestore();
   });
 
   describe('initialize', () => {
