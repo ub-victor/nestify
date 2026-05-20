@@ -23,6 +23,7 @@ nestify new my-awesome-app
 ```
 
 Follow the interactive prompts to configure your project with:
+
 - Package manager (npm/yarn/pnpm)
 - Docker support (MySQL/PostgreSQL/MongoDB + Redis)
 - Swagger documentation
@@ -50,12 +51,15 @@ nestify new my-awesome-app --no-git
 ## Database & ORM Support
 
 ### Prisma
+
 Nestify uses the official Prisma CLI to initialize your database layer, ensuring you always get the latest features and best practices.
 
 ### TypeORM
+
 Full TypeORM support with entity-based models for MySQL, PostgreSQL.
 
 ### Mongoose
+
 MongoDB integration with Mongoose for schema-based modeling.
 
 ## License
