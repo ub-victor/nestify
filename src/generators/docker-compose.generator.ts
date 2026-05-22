@@ -296,7 +296,7 @@ volumes:`;
     networks:
       - app-net
     healthcheck:
-      test: ['CMD-SHELL', "echo 'db.runCommand(\"ping\").ok' | mongosh localhost:27017/${envVar('DB_NAME')} --quiet"]
+      test: ['CMD-SHELL', "echo 'db.runCommand("ping").ok' | mongosh localhost:27017/${envVar('DB_NAME')} --quiet"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -312,7 +312,7 @@ volumes:`;
     networks:
       - app-net
     healthcheck:
-      test: ['CMD-SHELL', "echo 'db.runCommand(\"ping\").ok' | mongosh localhost:27017/${envVar('DB_NAME')}_test --quiet"]
+      test: ['CMD-SHELL', "echo 'db.runCommand("ping").ok' | mongosh localhost:27017/${envVar('DB_NAME')}_test --quiet"]
       interval: 5s
       timeout: 5s
       retries: 10

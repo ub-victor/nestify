@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Report something that isn't working
-labels: ["bug", "type: bug", "status: needs reproduction", "priority: medium"]
+labels: ['bug', 'type: bug', 'status: needs reproduction', 'priority: medium']
 ---
 
 ## What happened?
