@@ -24,6 +24,34 @@ export async function newCommand(
       process.exit(1);
     }
 
+    // Early validation: ensure Git is installed unless explicitly skipped
+    if (!options.noGit) {
+      try {
+        GitService.ensureGitInstalled();
+      } catch (err) {
+        console.error(
+          chalk.red('\n❌ Git is not installed or not available in PATH.'),
+        );
+        console.error(
+          chalk.white('Please install Git: https://git-scm.com/download'),
+        );
+        console.error(chalk.white('\nInstallation hints:'));
+        console.error(chalk.white('  macOS: brew install git'));
+        console.error(
+          chalk.white('  Linux (Debian/Ubuntu): sudo apt-get install git'),
+        );
+        console.error(
+          chalk.white('  Windows: https://git-scm.com/download/win'),
+        );
+        console.error(
+          chalk.white(
+            '\nIf you intentionally want to skip Git initialization, run with --no-git.',
+          ),
+        );
+        process.exit(1);
+      }
+    }
+
     const answers = await PromptsService.getProjectDetails(
       options.packageManager,
     );
@@ -70,7 +98,9 @@ export async function newCommand(
       }
 
       await FormatterService.format(projectPath, answers.packageManager);
-      GitService.initialize(projectPath);
+      if (!options.noGit) {
+        GitService.initialize(projectPath);
+      }
     } else {
       console.log(
         chalk.yellow(
@@ -101,7 +131,9 @@ export async function newCommand(
         chalk.yellow('⚠️  Git initialization skipped (format first)'),
       );
 
-      GitService.initialize(projectPath);
+      if (!options.noGit) {
+        GitService.initialize(projectPath);
+      }
     }
 
     ConsoleMessages.showSuccess(

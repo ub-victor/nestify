@@ -23,10 +23,19 @@ nestify new my-awesome-app
 ```
 
 Follow the interactive prompts to configure your project with:
+
 - Package manager (npm/yarn/pnpm)
 - Docker support (MySQL/PostgreSQL/MongoDB + Redis)
 - Swagger documentation
 - GitHub Actions CI/CD
+
+## Git Requirement
+
+`nestify` expects `git` to be available on your PATH by default and will initialize a repository for new projects. If `git` is not installed the CLI will exit with a helpful message. To skip Git initialization use the `--no-git` flag when creating a project:
+
+```bash
+nestify new my-awesome-app --no-git
+```
 
 ## Key Features
 
@@ -42,12 +51,15 @@ Follow the interactive prompts to configure your project with:
 ## Database & ORM Support
 
 ### Prisma
+
 Nestify uses the official Prisma CLI to initialize your database layer, ensuring you always get the latest features and best practices.
 
 ### TypeORM
+
 Full TypeORM support with entity-based models for MySQL, PostgreSQL.
 
 ### Mongoose
+
 MongoDB integration with Mongoose for schema-based modeling.
 
 ## License
