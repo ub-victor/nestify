@@ -61,6 +61,11 @@ describe('newCommand', () => {
     );
     (PackageInstallerService.install as jest.Mock).mockResolvedValue(undefined);
 
+    // Ensure git checks are noop by default in tests
+    (GitService.ensureGitInstalled as jest.Mock).mockImplementation(
+      () => undefined,
+    );
+
     consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
     consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
     mockExit = jest.spyOn(process, 'exit').mockImplementation((code?: any) => {
@@ -217,6 +222,16 @@ describe('newCommand', () => {
       expect(GitService.initialize).toHaveBeenCalledWith(mockProjectPath);
     });
 
+    it('should skip git initialization when --no-git is true', async () => {
+      const opts = {
+        ...mockOptions,
+        noGit: true,
+      } as unknown as NewCommandOptions;
+      await newCommand(mockProjectName, opts);
+
+      expect(GitService.initialize).not.toHaveBeenCalled();
+    });
+
     it('should install dependencies when skipInstall is false', async () => {
       await newCommand(mockProjectName, mockOptions);
 
@@ -331,6 +346,19 @@ describe('newCommand', () => {
       );
 
       expect(consoleErrorSpy).toHaveBeenCalled();
+    });
+
+    it('should exit if git is not installed and --no-git is not provided', async () => {
+      (GitService.ensureGitInstalled as jest.Mock).mockImplementation(() => {
+        throw new Error('git not found');
+      });
+
+      await expect(newCommand(mockProjectName, mockOptions)).rejects.toThrow(
+        'process.exit: 1',
+      );
+
+      expect(consoleErrorSpy).toHaveBeenCalled();
+      expect(GitService.initialize).not.toHaveBeenCalled();
     });
   });
 

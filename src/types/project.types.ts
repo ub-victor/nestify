@@ -15,6 +15,7 @@ export interface NewCommandOptions {
   packageManager: string;
   skipInstall: boolean;
   dryRun?: boolean;
+  noGit?: boolean;
 }
 
 export interface ProjectConfig {

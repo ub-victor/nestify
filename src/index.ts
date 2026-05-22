@@ -33,6 +33,7 @@ program
   )
   .option('--skip-install', 'Skip package installation')
   .option('--dry-run', 'Preview project structure without creating files')
+  .option('--no-git', 'Skip Git initialization')
   .addHelpText(
     'after',
     `
@@ -40,6 +41,7 @@ Examples:
   $ nestify new my-app
   $ nestify new my-app --package-manager yarn
   $ nestify new my-app --dry-run
+  $ nestify new my-app --no-git
   $ nestify new my-app --skip-install
 
 Note: Project names must:
